@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom" id="navstyle">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://image.freepik.com/free-vector/vegan-food-restaurant-logo-natural-nutrition-healthy-food-healthy-life-logo-design-vector-template_144543-555.jpg"
+                class="navbar-brand" width="40" height="40"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" routerLink="Adigas">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Restuarants
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" routerLink="Adigas">Adigas</a></li>
+                        <li><a class="dropdown-item" routerLink="Rotighar">RotiGhar</a></li>
+                        <li><a class="dropdown-item" routerLink="PunjabiRasoi">PunjabiRasoi</a></li>
+                        <li><a class="dropdown-item" routerLink="Udipi">Udupi</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <form class="d-flex">
+
+                        <input id="foodName" class="form-control" placeholder="Enter food name" [(ngModel)]="foodName"
+                            name="foodName"
+                            [ngClass]="{ 'is-invalid': search.get('foodName').touched && search.get('foodName').invalid }"
+                            formControlName="foodName" #name style="width:250px" />
+                        <span class="invalid-feedback">
+                            <span *ngIf="search.get('foodName').hasError('required')">foodName can't be blank.</span>
+                        </span>&nbsp;&nbsp;
+
+                        <button class="btn btn-outline-success" type="submit" routerLink="/search"
+                            (click)="searchFood(name.value)">Search</button>
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <button class="btn btn-success btn-sm" (click)="redirectCart()">
+        <i (click)="redirectCart()" class="fa fa-shopping-cart" style="font-size:25px ;color:rgb(9, 46, 9)">
+        </i>
+    </button>&nbsp;&nbsp;
+    <div class="btn btn-success" *ngIf="isTokenPresent()==false" routerLink="register">
+        Signup
+    </div> &nbsp;&nbsp;
+    <div class="btn btn-success" *ngIf="isTokenPresent()==false" routerLink="login" (click)="getCustomerEmail()">
+        Login
+    </div>
+    <!-- Displays the welcome text only when user is logged in -->
+    <div class="col-sm-3"><span *ngIf="isTokenPresent()==true" class="welcome-text ">Welcome
+            {{credService.customerEmail}} </span></div>
+    <button *ngIf="isTokenPresent()==true" class="btn btn-success" type="button" (click)="LogOut()">Logout
+    </button>
+</nav>

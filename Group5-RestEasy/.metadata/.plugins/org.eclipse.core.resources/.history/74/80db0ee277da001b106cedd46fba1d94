@@ -1,0 +1,50 @@
+package com.hcl.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "payment")
+public class Payment {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "payment_id")
+	private int paymentId;
+	@OneToOne
+	private Cart cart;
+	@OneToOne
+	private CardType card_Type;
+	
+	
+	@Pattern(regexp="^[0-9]{16}",message="length must be 16") 
+	@Column(name = "card_no")
+	private int cardNo;
+	
+	@Pattern(regexp="^[0-9]{3}",message="length must be 3") 
+	@Column(name = "security_code")
+	private int securityCode;
+	
+	@NotNull(message = "month cannot be null")
+	@Column(name = "month")
+	private String month;
+	
+	@NotNull(message = "year cannot be null")
+	@Column(name = "year")
+	private int year;
+	
+}

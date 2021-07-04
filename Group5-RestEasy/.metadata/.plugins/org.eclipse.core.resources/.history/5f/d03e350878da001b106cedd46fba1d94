@@ -1,0 +1,25 @@
+package com.hcl.model;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name="country")
+public class Country {
+
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="country_id")
+	private int countryId;
+	
+	@NotNull(message = "CountryName cannot be null")
+	@Column(name="country_name")
+	private String countryName;
+}

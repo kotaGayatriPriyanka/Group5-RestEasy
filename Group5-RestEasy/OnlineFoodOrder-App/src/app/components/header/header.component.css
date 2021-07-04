@@ -1,0 +1,30 @@
+input[type=text] ,[type=email],[type=password]{
+  width: 100%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.span1 {
+  background-color:rgb(31, 136, 21);
+  color: white;
+  padding: 8px 20px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  }
+   
+  .span2 {
+  background-color: white;
+  padding: 8px 20px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  }
+  .navbar-brand{
+    height:70px;
+    width:70px;
+  }
+  
+  #navstyle{
+
+    background:  rgb(120, 202, 120) ;
+  }

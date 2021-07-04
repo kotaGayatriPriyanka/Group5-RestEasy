@@ -1,0 +1,12 @@
+package com.hcl.services;
+
+import org.springframework.stereotype.Repository;
+
+import com.hcl.model.OrderDetails;
+
+
+public interface IOrderService {
+	public boolean addOrderDetails(OrderDetails orderDetails);
+	
+}
+

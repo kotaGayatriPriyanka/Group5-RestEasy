@@ -1,0 +1,29 @@
+package com.hcl.services;
+import com.hcl.repositry.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CardTypeImpl 
+{
+
+@Autowired
+private IAddressDAO ad;
+@Autowired
+private ICardTypeDAO cd;
+@Autowired
+private ICartDAO ct;
+@Autowired
+private ICountryDAO c;
+@Autowired
+private ICustomerDAO cust;
+@Autowired
+private IMenuDAO m;
+@Autowired
+private IPaymentDAO p;
+@Autowired
+private IRestuarantDAO r;
+@Autowired
+private IStateDAO s;
+
+}

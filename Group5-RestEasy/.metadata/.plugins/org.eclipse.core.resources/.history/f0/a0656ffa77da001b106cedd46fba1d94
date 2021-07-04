@@ -1,0 +1,30 @@
+package com.hcl.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "card_type")
+public class CardType {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "card_type_id")
+	private int cardTypeId;
+	
+	@NotNull(message = "CardName cannot be null")
+	@Column(name = "card_name")
+	private String cardName;
+	
+}
